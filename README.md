@@ -8,6 +8,10 @@
 
 - [deployed link](https://capital-finder-pi-sooty.vercel.app/api/)
 
+- [Example One](https://capital-finder-pi-sooty.vercel.app/api/capital-finder?country=germany)
+
+- [Example Two](https://capital-finder-pi-sooty.vercel.app/api/capital-finder?capital=berlin)
+
 #### .env requirements (where applicable)
 
 - requests
