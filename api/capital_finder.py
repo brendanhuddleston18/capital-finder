@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler
-import requests
 from urllib import parse
+import requests
 
 class handler(BaseHTTPRequestHandler):
   
