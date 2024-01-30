@@ -9,9 +9,10 @@ class handler(BaseHTTPRequestHandler):
     url_components = parse.urlsplit(s)
     query_string_list = parse.parse_qsl(url_components)
     country_dictionary = dict(query_string_list)
+    message = "Country Not Found"
 
     if "country" in country_dictionary:
-      response = requests.get(f"https://restcountries.com/v3.1/name/{country_dictionary["country"]}?fullText=true")
+      response = requests.get(f"https://restcountries.com/v3.1/name/{country_dictionary['country']}?fullText=true")
       # response = requests.get(f"https://restcountries.com/v3.1/name/Germany?fullText=true")
 
       response_json = response.json()
