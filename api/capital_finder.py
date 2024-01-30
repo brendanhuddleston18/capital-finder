@@ -17,14 +17,19 @@ class handler(BaseHTTPRequestHandler):
 
       response_json = response.json()
       capitals = []
-      for country_data in response_json:
-        capital = country_data["capital"]
-        capitals.append(capital)
-        print("capital")
-      message = str(capitals)
+      capital = response_json[0]["capital"][0]
+      capitals.append(capital)
+      message = f"The capital of {country_dictionary['country']} is {capital}"
+    elif "capital" in country_dictionary:
+      response = requests.get(f"https://restcountries.com/v3.1/capital/{country_dictionary['capital']}")
+      response_json = response.json()
+      country = response_json[0]["name"]["common"]
+      message = f"{country_dictionary['capital']} is the capital of {country}"
+    else:
+      message = "Please enter a valid capital or country"
 
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
-    self.wfile.write(f'{message}'.encode('utf-8'))
+    self.wfile.write(message.encode('utf-8'))
     return
